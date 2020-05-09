@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>JspBoard</display-name>
+  <!-- 요청(web.xml) 컨트롤러 역할을 하는 서블릿 등록  -->  
+  <servlet>
+  	<!-- do명령어가 들어오고 maapping 되서 ControllerAction 을 여기에서찾는다.  -->
+  	<servlet-name>ControllerAction</servlet-name>
+  	<servlet-class>controller.ControllerAction</servlet-class>
+  					<!-- 패지키이름.클래스명 -->
+  	<init-param>
+  		<param-name>propertyConfig</param-name>
+  		<param-value>F:/02.Web_Develope/02.KIC_web_develope_webtest/4.jsp/sou/JspBoard2/WebContent/WEB-INF/commandPro.properties</param-value>
+  	</init-param>
+  </servlet>
+  
+  <!-- 요청의 방식에 따라, 처리할 수 있도록 설정(요청명령어를 등록)  -->  
+  <servlet-mapping>
+  	<servlet-name>ControllerAction</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  	<!-- do 명령어로 들어오면 ControllerAction 서블릿을 찾는다. -->
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

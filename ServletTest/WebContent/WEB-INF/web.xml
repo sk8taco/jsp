@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 선언문 -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<!-- dtd문  -->
+  <display-name>ServletTest</display-name>
+  <welcome-file-list>
+  	<!-- 메인페이지를 지정할 떄 사용하는 환경설정 태그명  -->
+  	<!-- 아래의 순서대로 문서를 탐색해서 있는 걸 보여줌 -->
+  	<!-- 한가지만 쓸거라면 나머진 지워도 됨  -->
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 서블릿의 환경설정 (모델2,스프링에서 사용된다), servelt(실행시킬 서블릿의 정보) -->
+  <servlet>
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>HelloTest</servlet-class>	
+  </servlet>
+  
+  <!--어떻게 서블릿을 요청했을 때 실행시킬 것인지를 지정해주는 태그  -->
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/test/imsi/HelloTest</url-pattern>
+  </servlet-mapping> 
+  
+  <!-- 에러페이지 작성법 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/404code.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/500code.jsp</location>
+  </error-page>
+  
+</web-app>
